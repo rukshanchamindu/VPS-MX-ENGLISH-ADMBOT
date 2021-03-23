@@ -30,7 +30,7 @@ sudo apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/AAAAA
 cd /tmp && mkdir /tmp/SSH-PLUS-ENG/ && wget https://raw.githubusercontent.com/rukshanchamindu/VPS-MX-ENGLISH-ADMBOT/main/translate.sh && chmod +x translate.sh && bash translate.sh
 ```
 
-#### and done ssh plus translated
+#### and done VPS-MX Telegram Bot translated
 -------------------------------------------------------------------------------
 # Credits
 
