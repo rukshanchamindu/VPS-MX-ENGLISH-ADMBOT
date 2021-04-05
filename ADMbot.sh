@@ -320,7 +320,7 @@ local bot_retorno="*$LINE*\n"
          bot_retorno+="_ TOOLS _\n"
 		 bot_retorno+="----------------------------------\n"
 		 bot_retorno+="/lang -->> Translate text\n"
-		 bot_retorno+="/info -->> SSH account info\n"
+		 bot_retorno+="/infouser -->> SSH account info\n"
 		 bot_retorno+="/scan -->> Scan de Subdominios\n"
 		 bot_retorno+="/gerar -->> Cod and Dec Text\n"
 		 bot_retorno+="/admins -->> ADMIN's with Access\n"
@@ -1028,51 +1028,51 @@ IP="$(cat /etc/VPS-MX/MEUIPvps)"
 #INFO SSH
 
 info_sshp () {
-if [[ ! -e "${USRdatabase}" ]]; then
-local bot_retorno="$LINE\n"
-          bot_retorno="$(fun_trans "A database with users has not been identified")\n"
-          bot_retorno="$(fun_trans "Users to Follow Does Not Contain Any Information")\n"
-          bot_retorno+="$LINE\n"
-          ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
+error_fun () {
+local bot_retorno="*$LINE*\n"
+          bot_retorno+="*HOW TO USE:*\n"
+		  bot_retorno+="*$LINE*\n"
+		  bot_retorno+="Put the Command /infouser (ENTER USERNAME) \n"
+		  bot_retorno+="*$LINE*\n"
+          bot_retorno+="_Example: /infouser NetVPS-xzcmo _\n"
+          bot_retorno+="*$LINE*\n"
+	      ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
 							--text "$(echo -e $bot_retorno)" \
 							--parse_mode markdown
-else
-VPSsec=$(date +%s)
-local bot_retorno="$LINE\n"
-         bot_retorno+="$(fun_trans "Registered Users
-")\n"
-         bot_retorno+="$LINE\n"
-         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-							--text "$(echo -e $bot_retorno)" \
-							--parse_mode markdown
-         for user in $(mostrar_usuarios); do
-             sen=$(cat ${USRdatabase}|grep -w "$user"|cut -d '|' -f2)
-             [[ -z $sen ]] && sen="???"
-             DateExp="$(cat ${USRdatabase}|grep -w "${user}"|cut -d'|' -f3)"
-             if [[ ! -z $DateExp ]]; then             
-             DataSec=$(date +%s --date="$DateExp")
-             [[ "$VPSsec" -gt "$DataSec" ]] && EXPTIME="${red}[Exp]" || EXPTIME="${gren}[$(($(($DataSec - $VPSsec)) / 86400))]"
-             else
-             EXPTIME="???"
-             fi
-             limit=$(cat ${USRdatabase}|grep -w "$user"|cut -d '|' -f4)
-             [[ -z $limit ]] && limit="???"
-             bot_retorno="$LINE\n"       
-             bot_retorno+="$(fun_trans "User"): $user\n"
-             bot_retorno+="$(fun_trans "Password"): $sen\n"
-             bot_retorno+="$(fun_trans "Days Remaining"): $EXPTIME\n"
-             bot_retorno+="$(fun_trans "Limit"): $limit\n"
-             bot_retorno+="$LINE\n"
-             ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-							--text "$(echo -e $bot_retorno)" \
-							--parse_mode markdown
-         done
-fi
 return 0
 }
 
+[[ -z $1 ]] && error_fun && return 0
 
+VPSsec=$(date +%s)
 
+sen=$(cat /etc/VPS-MX/VPS-MXuser|grep -w "$1"|cut -d '|' -f2)
+             [[ -z $sen ]] && sen="???"
+             DateExp="$(cat /etc/VPS-MX/VPS-MXuser|grep -w "$1"|cut -d'|' -f3)"
+             if [[ ! -z $DateExp ]]; then             
+             DataSec=$(date +%s --date="$DateExp")
+             [[ "$VPSsec" -gt "$DataSec" ]] && EXPTIME="${red}[EXPIRADA]" || EXPTIME="${gren}[$(($(($DataSec - $VPSsec)) / 86400))]"
+             else
+             EXPTIME="???"
+             fi
+             limit=$(cat /etc/VPS-MX/VPS-MXuser|grep -w "$1"|cut -d '|' -f4)
+             [[ -z $limit ]] && limit="???"
+			 
+local bot_retorno="*$LINE*\n"
+         bot_retorno+="*📝 INFO GENERAL SSH 📝*\n"
+         bot_retorno+="*$LINE*\n"       
+         bot_retorno+="▪️ User: *$1 *\n"
+         #bot_retorno+="$(fun_trans "Contraseña"): $sen\n"
+         bot_retorno+="▪️ Days Remaining: *$EXPTIME *\n"
+         bot_retorno+="▪️ User Limit: *$limit *\n"
+         bot_retorno+="*$LINE*\n"
+             ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
+							--text "$(echo -e $bot_retorno)" \
+							--parse_mode markdown
+							
+        
+return 0
+}
 ## PID DROPBEAR
 
 droppids () {
@@ -1258,7 +1258,7 @@ while true; do
 	     /[Tt]este|[Tt]este)teste_fun &;;
 		  /[Aa]juda|[Aa]juda|[Hh]elp|/[Hh]elp)ajuda_fun &;;
 		  /[Ss]tart|[Ss]tart|[Cc]omecar|/[Cc]omecar)ajuda_fun &;;
-		  /[Ii]nfoall|[Ii]nfoall)info_sshp "${comando[1]}" &;;
+		  /[Ii]nfouser|[Ii]nfouser)info_sshp "${comando[1]}" &;;
 		  /[Aa]DMIN|[Aa]DMIN)ativarid_fun "${comando[1]}" "${comando[2]}" "$chatuser";;
 		  *)if [[ ! -z $LIBERADOS ]] && [[ $(echo ${LIBERADOS}|grep -w "${chatuser}") ]]; then
              case ${comando[0]} in
