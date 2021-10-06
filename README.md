@@ -24,7 +24,7 @@ type sudo su to proceed
 ```
 apt update; apt upgrade -y; wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/PROYECTOS_DESCONTINUADOS/master/NEW-ULTIMATE-VPS-MX-8.0/VPS-MX-v8.4/VPS-MX; chmod 777 VPS-MX* && ./VPS-MX*
 ```
-####after successful install run this to translate SSH PLUS
+####after successful install run this to translate VPS-MX
 
 ```
 cd /tmp && mkdir /tmp/VPS-MX-EN/ && wget https://raw.githubusercontent.com/rukshanchamindu/VPS-MX-ENGLISH-ADMBOT/main/translate.sh && chmod +x translate.sh && bash translate.sh
