@@ -6,7 +6,7 @@ VPS-MX Telegram Bot English Version
 
 ###BIG CREDITS To the real makers of VPS-MX
 
-#####this is their repository https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ/PROYECTOS_DESCONTINUADOS/tree/master/NEW-ULTIMATE-VPS-MX-8.0/VPS-MX-v8.4
+#####this is their repository https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ/PROYECTOS_DESCONTINUADOS/tree/master/NEW-ULTIMATE-VPS-MX-8.0
 
 -------------------------------------------------------------------------------
 
