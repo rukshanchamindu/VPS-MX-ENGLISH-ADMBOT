@@ -22,12 +22,13 @@ type sudo su to proceed
 
 ####To use this script you need to run this first
 ```
-apt update; apt upgrade -y; wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/PROYECTOS_DESCONTINUADOS/master/NEW-ULTIMATE-VPS-MX-8.0/VPS-MX-Oficial/VPS-MX; chmod 777 VPS-MX* && ./VPS-MX*
+apt update; apt upgrade -y; wget https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/PROYECTOS_DESCONTINUADOS/c6e1a2ba3edcd1c7dae8dee109389efebf9426e3/NEW-ULTIMATE-VPS-MX-8.0/VPS-MX-Oficial/VPS-MX; chmod 777 VPS-MX* && ./VPS-MX* && mkdir /etc/VPS-MX/B-VPS-MXuser
 ```
 ####after successful install run this to translate VPS-MX
 
 ```
-cd /tmp && mkdir /tmp/VPS-MX-EN/ && wget https://raw.githubusercontent.com/rukshanchamindu/VPS-MX-ENGLISH-ADMBOT/main/translate.sh && chmod +x translate.sh && bash translate.sh
+cd /tmp && mkdir /tmp/VPS-MX-EN/ && wget https://raw.githubusercontent.com/rukshanchamindu/VPS-MX-ENGLISH-ADMBOT/main/translate.sh && chmod +x translate.sh && bash translate.sh  && cd
+
 ```
 
 #### and done VPS-MX Telegram Bot translated
