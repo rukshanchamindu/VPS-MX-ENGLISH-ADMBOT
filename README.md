@@ -4,7 +4,7 @@ VPS-MX Telegram Bot English Version
 ![logo](https://github.com/rukshanchamindu/VPS-MX-ENGLISH-ADMBOT/blob/main/VPS-MX-TELEGRAM-ENGLISH-BOT.png)
 
 
-###BIG CREDITS To the real makers of VPS-MX
+### BIG CREDITS To the real makers of VPS-MX
 
 #####this is their repository https://github.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MX-FREE
 
@@ -12,7 +12,7 @@ VPS-MX Telegram Bot English Version
 
 # Installation
 
-####Before you start make sure you are login as root user
+#### Before you start make sure you are login as root user
 
 type sudo su to proceed 
 
@@ -20,11 +20,11 @@ type sudo su to proceed
 
 
 
-####To use this script you need to run this first
+#### To use this script you need to run this first
 ```
 apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/rukshanchamindu/VPS-MX-FREE/main/VPS-MX; chmod 777 VPS-MX* && ./VPS-MX*
 ```
-####after successful install run this to translate VPS-MX Telegram Bot
+#### after successful install run this to translate VPS-MX Telegram Bot
 
 ```
 cd /tmp && mkdir /tmp/VPS-MX-EN/ && wget https://raw.githubusercontent.com/rukshanchamindu/VPS-MX-ENGLISH-ADMBOT/main/translate.sh && chmod +x translate.sh && bash translate.sh  && cd
