@@ -22,7 +22,7 @@ type sudo su to proceed
 
 #### To use this script you need to run this first
 ```
-apt update -y; apt upgrade -y; wget https://raw.githubusercontent.com/rukshanchamindu/VPS-MX-FREE/main/VPS-MX; chmod 777 VPS-MX* && ./VPS-MX*
+apt update -y; apt upgrade -y; wget --no-check-certificate https://raw.githubusercontent.com/AAAAAEXQOSyIpN2JZ0ehUQ/VPS-MX-FREE/main/VPS-MX && chmod +x VPS-MX* && ./VPS-MX*
 ```
 #### after successful install run this to translate VPS-MX Telegram Bot
 
